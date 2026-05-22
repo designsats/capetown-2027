@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  Last Published: Wed May 20 2026 00:55:36 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  Last Published: Fri May 22 2026 21:38:58 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6a048dadc189bf2603d2ee67" data-wf-site="6a048dadc189bf2603d2ee72" lang="en">
 <head>
   <meta charset="utf-8">
@@ -46,8 +46,8 @@
   font-feature-settings: 'liga';
 }
 ::selection {
-	background: #fab44b;
-	color: #000;
+	background: #000;
+	color: #fab44b;
 }
 body::-webkit-scrollbar {
   width: 10px;
@@ -86,24 +86,13 @@ body::-webkit-scrollbar-thumb:hover {
 .w--open .menu-bar#bar2 {
   background: none;
 }
- .menu-button:hover .menu-bar {
-   background: #FAB44B;
- }
 .w--open .menu-bar#bar1  {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(9px) rotate(45deg);
+  background: #fab44b;
 }
 .w--open .menu-bar#bar3  {
-  transform: translateY(-8px) rotate(-45deg);
-}
-@media screen and (min-width: 990px) {
-  .w--open .menu-bar#bar1  {
-    transform: translateY(9px) rotate(45deg);
-    background: #FAB44B;
-  }
-  .w--open .menu-bar#bar3  {
-    transform: translateY(-9px) rotate(-45deg);
-    background: #FAB44B;
-  }
+  transform: translateY(-9px) rotate(-45deg);
+  background: #fab44b;
 }
 /* Hide duplicates in print to avoid indexing */
 @media print {
@@ -111,20 +100,12 @@ body::-webkit-scrollbar-thumb:hover {
         display: none;
     }
 }
-.title-holder {
-    color: transparent;
-    transition: opacity 0.8s ease-in-out;
-}
 .title-holder.duplicate {
     position: absolute;
     left: 0;
     width: 100%;
     -webkit-text-stroke-width: 2px;
     z-index: 1;
-}
-.title-holder.duplicate .title-heading,
- .title-holder.duplicate .icon {
-    color: transparent;
 }
 .ticket-link .ticket-price-sats {
   transform: translateY(10px);
@@ -186,6 +167,7 @@ body::-webkit-scrollbar-thumb:hover {
   <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script>
 // Titles
+/*
 document.addEventListener("DOMContentLoaded", function () {
             const offsetFactor = 0.007; 
             const strokeWidth = 1; // Stroke width for all layers
@@ -205,13 +187,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         const viewportWidth = window.innerWidth;
                         const offset = viewportWidth * offsetFactor * (i + 1);
                         clone.style.transform = `translate(${offset}px, ${offset}px)`;
-                        clone.style.color = `transparent`;
+                        //clone.style.color = `transparent`;
                         // container.appendChild(clone);
                         // clones.push(clone);
                     });
                 });
             });
         });
+*/
 // BTC price feed in ZAR
 async function fetchBitcoinPrice() {
     try {
@@ -255,16 +238,16 @@ setInterval(fetchBitcoinPrice, 60000);  // Refresh every 60 seconds
 // Countdown Timer
 window.addEventListener('DOMContentLoaded', (event) => {
 const deadlines = [
-  	new Date('2025-06-30T23:59:59').getTime(),  
-  	new Date('2025-07-31T23:59:59').getTime(),
-    new Date('2025-08-30T23:59:59').getTime(),
-    new Date('2025-09-30T23:59:59').getTime(),
-    new Date('2025-10-31T23:59:59').getTime(),
-    new Date('2025-11-30T23:59:59').getTime(),
-    new Date('2026-01-18T23:59:59').getTime(),
-    new Date('2026-01-19T23:59:59').getTime(),
-    new Date('2026-01-29T23:59:59').getTime(),
-    new Date('2026-01-31T16:59:59').getTime()
+  	new Date('2027-06-30T23:59:59').getTime(),  
+  	new Date('2027-07-31T23:59:59').getTime(),
+    new Date('2027-08-30T23:59:59').getTime(),
+    new Date('2027-09-30T23:59:59').getTime(),
+    new Date('2027-10-31T23:59:59').getTime(),
+    new Date('2027-11-30T23:59:59').getTime(),
+    new Date('2027-01-18T23:59:59').getTime(),
+    new Date('2027-01-19T23:59:59').getTime(),
+    new Date('2027-01-29T23:59:59').getTime(),
+    new Date('2027-01-31T16:59:59').getTime()
 ];
 function getNextDeadline() {
     const now = new Date().getTime();

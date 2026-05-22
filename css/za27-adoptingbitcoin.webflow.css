@@ -64,14 +64,14 @@
 
 :root {
   --capetownorange: #fab44b;
-  --bg: #05051f;
-  --white-2: white;
   --black: black;
-  --cptbg: #484139;
+  --white-2: white;
+  --bg: #05051f;
   --white: white;
   --galoyblue: #3654ff;
   --fontgrey: grey;
   --adopting-yellow: #eedb5f;
+  --cptbg: #484139;
   --sand-white: #eeece9;
   --neon-blue: #0400ff;
   --galoygrey: #1e1e1e;
@@ -133,7 +133,8 @@
 
 body {
   background-color: var(--capetownorange);
-  color: var(--bg);
+  color: var(--black);
+  background-image: none;
   font-family: Poppins, sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -152,8 +153,7 @@ h1 {
 }
 
 h2 {
-  color: var(--black);
-  text-transform: uppercase;
+  color: var(--bg);
   margin-top: 0;
   font-size: 32px;
   font-weight: 700;
@@ -188,7 +188,7 @@ p {
 }
 
 a {
-  color: var(--cptbg);
+  color: var(--black);
   cursor: pointer;
   text-decoration: none;
 }
@@ -397,6 +397,7 @@ a:hover {
 }
 
 .menu-button {
+  z-index: 1;
   background-color: var(--capetownorange);
   cursor: pointer;
   border: 2px solid #0000;
@@ -414,7 +415,6 @@ a:hover {
 }
 
 .menu-button.w--open {
-  z-index: 1;
   background-color: #0000;
   border-width: 2px;
   border-color: #fab44b33;
@@ -872,7 +872,8 @@ a:hover {
 }
 
 .button.button-ghost {
-  background-color: var(--sand-white);
+  color: var(--black);
+  background-color: #0000;
   padding-left: 40px;
   padding-right: 40px;
   font-size: 17px;
@@ -882,6 +883,13 @@ a:hover {
 
 .button.button-ghost:hover {
   color: var(--cptbg);
+}
+
+.button.button-search {
+  height: 52px;
+  margin-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .hero-heading-right {
@@ -941,7 +949,6 @@ a:hover {
 
 .hero-section {
   background-color: var(--capetownorange);
-  color: #fff;
   margin-top: 0;
   padding-top: 200px;
   padding-bottom: 20px;
@@ -1230,11 +1237,10 @@ a:hover {
 .title-holder {
   z-index: 3;
   grid-column-gap: 40px;
-  -webkit-text-stroke-width: 0px;
-  -webkit-text-stroke-color: var(--adopting-yellow);
+  width: 200%;
+  color: var(--black);
   justify-content: center;
   align-items: center;
-  width: 200%;
   font-size: 100px;
   line-height: 1em;
   display: flex;
@@ -1393,10 +1399,9 @@ a:hover {
 }
 
 .speaker-name {
-  color: var(--galoygrey);
+  color: var(--black);
   text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.1em;
 }
@@ -1558,6 +1563,10 @@ a:hover {
 .sponsor-logo.tertiary-logo {
   width: auto;
   height: 70px;
+}
+
+.sponsor-logo.tertiary-logo.logo-bw {
+  filter: saturate(11%);
 }
 
 .collection-list {
@@ -1729,6 +1738,10 @@ a:hover {
 
 .flash-icon.flash-icon-dark {
   filter: brightness(0%);
+}
+
+.tickets-info {
+  font-weight: 300;
 }
 
 .social-modal-container {
@@ -2210,21 +2223,25 @@ a:hover {
 }
 
 .countdown-container {
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
+  text-align: right;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-auto-columns: 1fr;
-  padding-bottom: 80px;
-  display: grid;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 40px;
 }
 
 .countdown-number {
-  color: var(--capetownorange);
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 56px;
-  font-weight: 700;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
 }
 
 .countdown-label {
@@ -2235,9 +2252,10 @@ a:hover {
 }
 
 .countdown-title {
-  text-align: center;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 1em;
 }
 
 .events-dates {
@@ -2330,10 +2348,10 @@ a:hover {
 }
 
 .tickets-container {
-  grid-column-gap: 40px;
-  grid-row-gap: 40px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-auto-columns: 1fr;
   place-items: center;
   margin-left: auto;
@@ -2359,20 +2377,23 @@ a:hover {
 }
 
 .ticket-link:hover {
-  transform: translate(0, -15px);
+  transform: translate(0, -8px);
+}
+
+.ticket-link.ticket-link-2 {
+  margin-left: 40px;
+}
+
+.ticket-link.ticket-link-3 {
+  margin-left: 100px;
 }
 
 .ticket-title {
-  color: var(--cptbg);
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 26px;
+  color: var(--red);
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1em;
-  position: absolute;
-  top: 28%;
-  left: 0;
-  right: 0;
 }
 
 .ticket-title.ticket-intl {
@@ -2392,14 +2413,8 @@ a:hover {
 }
 
 .ticket-price {
-  color: var(--cptbg);
-  text-align: center;
-  font-size: 40px;
+  margin-bottom: 0;
   font-weight: 700;
-  position: absolute;
-  bottom: 14%;
-  left: 0;
-  right: 0;
 }
 
 .ticket-price.scheme-pa {
@@ -2447,6 +2462,7 @@ a:hover {
 
 .hero-titles-wrap {
   z-index: 1;
+  margin-top: 40px;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -2460,14 +2476,13 @@ a:hover {
 }
 
 .ticket-price-sats {
-  color: var(--cptbg);
+  color: var(--black);
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   position: absolute;
-  bottom: 26%;
-  left: 10px;
-  right: 10px;
+  bottom: -30px;
+  left: 0;
 }
 
 .first-word {
@@ -2814,10 +2829,11 @@ a:hover {
 }
 
 .accordion-title {
-  border-bottom: 1px solid var(--capetownorange);
   width: 100%;
   color: var(--sand);
   text-transform: uppercase;
+  border: 1px #000;
+  border-bottom: 2px solid #000;
   padding: 25px 0 25px 10px;
   font-weight: 500;
 }
@@ -2880,7 +2896,7 @@ a:hover {
 }
 
 .hero-graphic.beadwork-pattern {
-  transform: rotate(4deg)translate(-50%);
+  transform: translate(-50%);
 }
 
 .hero-graphic.right-tilt {
@@ -2928,7 +2944,7 @@ a:hover {
 
 .hosted-by-text {
   text-align: right;
-  margin-top: 26px;
+  margin-top: 4px;
   margin-right: 20px;
   font-size: 19px;
   font-weight: 300;
@@ -2946,12 +2962,6 @@ a:hover {
 .link-text {
   color: var(--black);
   margin-top: 0;
-}
-
-.body-404 {
-  background-image: url('../images/bg01.webp');
-  background-position: 50%;
-  background-size: cover;
 }
 
 .video-overlay {
@@ -2979,7 +2989,7 @@ a:hover {
 }
 
 .dark-text {
-  color: var(--cptbg);
+  color: var(--black);
 }
 
 .hero-subpage-img {
@@ -3065,6 +3075,7 @@ a:hover {
 }
 
 .wedge-element {
+  z-index: 1;
   position: absolute;
   inset: auto 0% -1px;
 }
@@ -3074,6 +3085,14 @@ a:hover {
   color: var(--black);
   background-color: #fff0;
   border: 2px solid #000;
+}
+
+.form-field:hover {
+  background-color: #0000000d;
+}
+
+.form-field:focus {
+  border-color: #00000080;
 }
 
 .form-field::placeholder {
@@ -3095,6 +3114,66 @@ a:hover {
   position: absolute;
   bottom: -13px;
   right: -20%;
+}
+
+.countdown-text {
+  font-size: 20px;
+  display: inline-block;
+}
+
+.countdown-text.countdown-text-label {
+  color: var(--red);
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.utility-page-form {
+  flex-direction: column;
+  align-items: stretch;
+  display: flex;
+}
+
+.search-bar {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+}
+
+.ticket-outline {
+  width: 420px;
+}
+
+.ticket-outline.ticket-outline-mobile {
+  display: none;
+}
+
+.tickets-info-group {
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  color: var(--bg);
+  font-size: 12px;
+  line-height: 1.3em;
+  display: flex;
+}
+
+.bolt-icon {
+  width: 5px;
+}
+
+.tickets-texts {
+  position: absolute;
+  top: 47%;
+  left: 50px;
+  transform: translate(0, -50%);
+}
+
+.text-span {
+  margin-right: 5px;
+}
+
+.price-decimal {
+  font-size: .9rem;
 }
 
 @media screen and (min-width: 1280px) {
@@ -3135,7 +3214,7 @@ a:hover {
     padding-right: 40px;
   }
 
-  .container.container-full {
+  .container.container-full, .container.container-tickets {
     max-width: 100%;
   }
 
@@ -3243,7 +3322,7 @@ a:hover {
 
   .hero-img-container {
     background-image: none;
-    height: 720px;
+    height: 740px;
   }
 
   .hero-img-container.volcano-img-dark {
@@ -3283,8 +3362,12 @@ a:hover {
     color: var(--capetownorange);
   }
 
+  .countdown-container {
+    width: 13%;
+  }
+
   .countdown-title {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .tweets-container {
@@ -3292,9 +3375,9 @@ a:hover {
   }
 
   .tickets-container {
-    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
   }
 
   .ticket-link {
@@ -3306,10 +3389,12 @@ a:hover {
     transform: translate(0, -20px);
   }
 
+  .ticket-link.ticket-link-2, .ticket-link.ticket-link-3 {
+    margin-left: 0;
+  }
+
   .ticket-title {
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 36px;
+    font-size: 16px;
   }
 
   .ticket-title.ticket-intl {
@@ -3322,7 +3407,7 @@ a:hover {
   }
 
   .ticket-price {
-    font-size: 48px;
+    font-size: 32px;
   }
 
   .ticket-price.scheme-pa {
@@ -3368,6 +3453,10 @@ a:hover {
     transform: rotate(4deg)translate(-50%, 50%);
   }
 
+  .hero-slider {
+    right: 23%;
+  }
+
   .footer-bg {
     background-size: contain;
   }
@@ -3379,6 +3468,18 @@ a:hover {
 
   .hide {
     display: none;
+  }
+
+  .countdown-time-group {
+    display: block;
+  }
+
+  .ticket-outline {
+    width: 580px;
+  }
+
+  .tickets-info-group {
+    font-size: 14px;
   }
 }
 
@@ -3840,6 +3941,10 @@ a:hover {
     width: 48.5%;
   }
 
+  .countdown-container {
+    top: 0;
+  }
+
   .countdown-label {
     font-size: 15px;
   }
@@ -3861,15 +3966,12 @@ a:hover {
   }
 
   .tickets-container {
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
     padding-left: 0;
     padding-right: 0;
   }
 
   .ticket-title {
-    font-size: 22px;
+    font-size: 14px;
     left: 10px;
     right: 10px;
   }
@@ -3883,7 +3985,7 @@ a:hover {
   }
 
   .ticket-price {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .bitcoin-only {
@@ -3944,6 +4046,14 @@ a:hover {
     padding-left: 0;
     padding-right: 0;
     overflow: hidden;
+  }
+
+  .countdown-text {
+    font-size: 18px;
+  }
+
+  .countdown-text.countdown-text-label {
+    font-size: 14px;
   }
 }
 
@@ -4118,7 +4228,7 @@ a:hover {
 
   .button.book-now.book-now-fixed {
     text-shadow: none;
-    top: 21px;
+    top: 22px;
     right: 100px;
   }
 
@@ -4317,13 +4427,9 @@ a:hover {
     width: 16px;
   }
 
-  .tickets-info {
-    margin-top: 40px;
-  }
-
   .social-modal-container {
     width: 90%;
-    display: none;
+    display: block;
   }
 
   .hero-img-container {
@@ -4438,16 +4544,6 @@ a:hover {
     column-gap: 20px;
   }
 
-  .tickets-container {
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .ticket-title {
-    font-size: 26px;
-  }
-
   .ticket-title.ticket-intl {
     font-size: 20px;
   }
@@ -4455,10 +4551,6 @@ a:hover {
   .ticket-date {
     font-size: 14px;
     top: 47%;
-  }
-
-  .ticket-price {
-    font-size: 40px;
   }
 
   .bitcoin-only {
@@ -4475,7 +4567,6 @@ a:hover {
 
   .ticket-price-sats {
     font-size: 14px;
-    bottom: 90px;
   }
 
   .first-word {
@@ -4598,6 +4689,7 @@ a:hover {
   .menu-button {
     border-style: solid;
     border-width: 2px;
+    top: 10px;
   }
 
   .container {
@@ -4607,6 +4699,11 @@ a:hover {
   .container.container-form {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .container.container-tickets {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .hero-wrapper {
@@ -4670,7 +4767,7 @@ a:hover {
     padding: 8px 11px;
     font-size: 12px;
     display: inline-block;
-    top: 26px;
+    top: 23px;
     right: 90px;
     transform: none;
   }
@@ -4720,7 +4817,7 @@ a:hover {
 
   .h3.hero-heading {
     text-align: left;
-    max-width: 240px;
+    max-width: 70%;
     font-size: 21px;
   }
 
@@ -4856,10 +4953,6 @@ a:hover {
     padding-right: 0;
   }
 
-  .social-modal-container {
-    display: none;
-  }
-
   .hero-img-container {
     height: 320px;
     bottom: 0;
@@ -4902,10 +4995,6 @@ a:hover {
 
   .venue-logo {
     width: 50px;
-  }
-
-  .footer-link {
-    font-weight: 300;
   }
 
   .cfp-link {
@@ -4953,15 +5042,29 @@ a:hover {
     height: 20vw;
   }
 
+  .footer-menu-list {
+    line-height: 2em;
+  }
+
   .footer-menu-item {
     font-size: 16px;
   }
 
+  .countdown-container {
+    max-width: 25%;
+    line-height: 1.05em;
+  }
+
   .countdown-number {
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: flex-end;
     font-size: 30px;
   }
 
-  .countdown-label {
+  .countdown-label, .countdown-title {
     font-size: 12px;
   }
 
@@ -4989,9 +5092,6 @@ a:hover {
   }
 
   .tickets-container {
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    grid-template-columns: 1fr 1fr;
     padding-left: 0;
     padding-right: 0;
   }
@@ -5000,10 +5100,12 @@ a:hover {
     overflow: hidden;
   }
 
+  .ticket-link.ticket-link-2, .ticket-link.ticket-link-3 {
+    margin-left: 0;
+  }
+
   .ticket-title {
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .ticket-title.ticket-intl {
@@ -5017,7 +5119,7 @@ a:hover {
   }
 
   .ticket-price {
-    font-size: 22px;
+    font-size: 24px;
     bottom: 47px;
   }
 
@@ -5035,6 +5137,10 @@ a:hover {
     padding-top: 60px;
     padding-bottom: 10px;
     overflow: hidden;
+  }
+
+  .btc-price-feed {
+    font-size: 12px;
   }
 
   .btc-price-feed.centered {
@@ -5170,6 +5276,18 @@ a:hover {
   .speaker-bio {
     text-align: left;
     font-size: 13px;
+  }
+
+  .ticket-outline {
+    display: none;
+  }
+
+  .ticket-outline.ticket-outline-mobile {
+    display: block;
+  }
+
+  .tickets-texts {
+    left: 35px;
   }
 }
 
