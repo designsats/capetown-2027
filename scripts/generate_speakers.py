@@ -54,9 +54,10 @@ def adjust_paths(html: str) -> str:
     html = re.sub(r'href="css/', 'href="../css/', html)
     # JS
     html = re.sub(r'src="js/', 'src="../js/', html)
-    # Images (src and srcset)
+    # Images (src, srcset, and href for favicons/icons)
     html = re.sub(r'src="images/', 'src="../images/', html)
     html = re.sub(r'srcset="images/', 'srcset="../images/', html)
+    html = re.sub(r'href="images/', 'href="../images/', html)
     # Fix srcset with multiple entries (images/ after commas)
     html = re.sub(r',\s*images/', ', ../images/', html)
     # Fonts
